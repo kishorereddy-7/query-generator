@@ -42,7 +42,7 @@ const QueryForm = ({
       operator: OperatorEnum.IS,
       value: "",
       type: ConditionTypeEnum.RULE,
-      queryString: ` ${FieldEnum.NAME} ${OperatorEnum.IS} "${""}"`
+      queryString: ` ${FieldEnum.NAME} ${OperatorEnum.IS} "${""}"`,
     };
     onChange((prev) => {
       const updated = [...prev];
@@ -66,7 +66,7 @@ const QueryForm = ({
           value: "",
           type: ConditionTypeEnum.RULE,
           logicalOperator: LogicalOperatorEnum.AND,
-          queryString: ` ${FieldEnum.NAME} ${OperatorEnum.IS} "${""}"`
+          queryString: ` ${FieldEnum.NAME} ${OperatorEnum.IS} "${""}"`,
         },
       ],
     };

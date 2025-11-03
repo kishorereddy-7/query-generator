@@ -1,3 +1,9 @@
+export enum FieldTypeEnum {
+  NUMERIC = "numeric",
+  STATUS = "status",
+  DEPARTMENT = "department",
+  TEXT = "text",
+}
 export enum LogicalOperatorEnum {
   AND = "AND",
   OR = "OR",
@@ -53,3 +59,44 @@ export const DEPARTMENT_OPTIONS = [
   { label: "Sales", value: "sales" },
   { label: "Marketing", value: "marketing" },
 ];
+
+export const NUMERIC_OPERATORS = [
+  { value: "=", label: "=" },
+  { value: ">=", label: ">=" },
+  { value: "<=", label: "<=" },
+  { value: "!=", label: "!=" },
+  { value: ">", label: ">" },
+  { value: "<", label: "<" },
+];
+
+export const FIELD_META: {
+  [key in FieldEnum]: {
+    fieldType: FieldTypeEnum;
+    defaultOperator: OperatorEnum | string;
+  };
+} = {
+  [FieldEnum.NAME]: {
+    fieldType: FieldTypeEnum.TEXT,
+    defaultOperator: OperatorEnum.CONTAINS,
+  },
+  [FieldEnum.AGE]: {
+    fieldType: FieldTypeEnum.NUMERIC,
+    defaultOperator: "=",
+  },
+  [FieldEnum.STATUS]: {
+    fieldType: FieldTypeEnum.STATUS,
+    defaultOperator: OperatorEnum.IS,
+  },
+  [FieldEnum.DEPARTMENT]: {
+    fieldType: FieldTypeEnum.DEPARTMENT,
+    defaultOperator: OperatorEnum.IS,
+  },
+  [FieldEnum.SALARY]: {
+    fieldType: FieldTypeEnum.NUMERIC,
+    defaultOperator: "=",
+  },
+  [FieldEnum.EMAIL]: {
+    fieldType: FieldTypeEnum.TEXT,
+    defaultOperator: OperatorEnum.IS,
+  },
+};
