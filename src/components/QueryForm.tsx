@@ -6,7 +6,6 @@ import {
   OperatorEnum,
 } from "../constants/query.constant";
 import RuleRow from "./RuleRow";
-import { on } from "events";
 
 interface QueryFormProps {
   query: QueryCondition;
@@ -59,13 +58,13 @@ const QueryForm = ({
   const handleAddGroup = () => {
     const newGroup: QueryCondition = {
       type: ConditionTypeEnum.GROUP,
+      logicalOperator: LogicalOperatorEnum.AND,
       conditions: [
         {
           field: FieldEnum.NAME,
           operator: OperatorEnum.IS,
           value: "",
           type: ConditionTypeEnum.RULE,
-          logicalOperator: LogicalOperatorEnum.AND,
           queryString: ` ${FieldEnum.NAME} ${OperatorEnum.IS} "${""}"`,
         },
       ],
