@@ -41,9 +41,9 @@ function QueryGenerator() {
         });
       } else {
         string +=
-          query.queryString +
-          (index === queryList.length - 1 ? "" : " " + globalLogicalOperator);
+          query.queryString
       }
+      string += (index === queryList.length - 1 ? "" : " " + globalLogicalOperator);
     });
     setQueryString(string);
   }, [queryList, globalLogicalOperator]);
